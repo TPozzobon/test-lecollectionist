@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'shops#index'
 
-  resources :shops
+  resources :shops, only: [:index]
 end
