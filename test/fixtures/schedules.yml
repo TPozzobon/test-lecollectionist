@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyString
+  open_am: 2022-01-13 14:36:44
+  close_am: 2022-01-13 14:36:44
+  open_pm: 2022-01-13 14:36:44
+  close_pm: 2022-01-13 14:36:44
+  shop: one
+
+two:
+  day: MyString
+  open_am: 2022-01-13 14:36:44
+  close_am: 2022-01-13 14:36:44
+  open_pm: 2022-01-13 14:36:44
+  close_pm: 2022-01-13 14:36:44
+  shop: two
