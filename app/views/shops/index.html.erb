@@ -3,5 +3,13 @@
 <% @shops.each do |shop| %>
   <ul>
     <li><%= shop.name %></li>
+    <p>
+      <strong>Horaires :</strong>
+      <% shop.schedules.each do |schedule| %>
+        <ul>
+          <li><%= "#{schedule.day}  #{schedule.open_am}-#{schedule.close_am}, #{schedule.open_pm}-#{schedule.close_pm}" %></li>
+        </ul>
+      <% end %>
+    </p>
   </ul>
 <% end %>
