@@ -7,7 +7,7 @@
       <strong>Horaires :</strong>
       <% shop.schedules.each do |schedule| %>
         <ul>
-          <li><%= "#{schedule.day}  #{schedule.open_am}-#{schedule.close_am}, #{schedule.open_pm}-#{schedule.close_pm}" %></li>
+          <li><%= "#{schedule.day}  #{schedule.open_am&.strftime("%I:%M%p")}-#{schedule.close_am&.strftime("%I:%M%p")}, #{schedule.open_pm&.strftime("%I:%M%p")}-#{schedule.close_pm&.strftime("%I:%M%p")}" %></li>
         </ul>
       <% end %>
     </p>
