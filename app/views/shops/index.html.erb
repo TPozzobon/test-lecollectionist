@@ -1,10 +1,10 @@
-<h2>Enseignes :</h2>
+<h2><%= t("home.general.shops") %> :</h2>
 
 <% @shops.each do |shop| %>
   <ul>
     <li><%= shop.name %></li>
     <p>
-      <strong>Horaires :</strong>
+      <strong><%= t("home.general.schedules") %> :</strong>
       <% shop.schedules.each do |schedule| %>
         <ul>
           <li>
