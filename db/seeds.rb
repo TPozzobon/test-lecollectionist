@@ -16,11 +16,11 @@ puts 'Creating shops'
 Shop.create!(name: 'Soyez Semi-Croustillant')
 
 puts 'Creating schedules'
-Schedule.create!(day: 'Lundi', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
-Schedule.create!(day: 'Mardi', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
-Schedule.create!(day: 'Mercredi', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
-Schedule.create!(day: 'Jeudi', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
-Schedule.create!(day: 'Vendredi', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
-Schedule.create!(day: 'Samedi', open_am: '10:30', close_pm: '20:00', shop_id: 1)
-Schedule.create!(day: 'Dimanche', shop_id: 1)
+Schedule.create!(day: 'monday', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
+Schedule.create!(day: 'tuesday', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
+Schedule.create!(day: 'wednesday', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
+Schedule.create!(day: 'thursday', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
+Schedule.create!(day: 'friday', open_am: '10:30', close_am: '15:00', open_pm: '17:00', close_pm: '20:00', shop_id: 1)
+Schedule.create!(day: 'saturday', open_am: '10:30', close_pm: '20:00', shop_id: 1)
+Schedule.create!(day: 'sunday', shop_id: 1)
 puts 'Finished !'

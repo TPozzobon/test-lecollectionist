@@ -7,7 +7,15 @@
       <strong>Horaires :</strong>
       <% shop.schedules.each do |schedule| %>
         <ul>
-          <li><%= "#{schedule.day}  #{schedule.open_am}-#{schedule.close_am}, #{schedule.open_pm}-#{schedule.close_pm}" %></li>
+          <li>
+            <% if schedule.close_am.nil? && schedule.close_pm.nil? %>
+              <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
+            <% elsif schedule.close_am.nil? && schedule.open_pm.nil? %>
+              <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+            <% else %>
+              <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+            <% end %>
+          </li>
         </ul>
       <% end %>
     </p>
