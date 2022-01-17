@@ -32,6 +32,8 @@
 fr:
   home:
     general:
+      shops: 'Enseignes'
+      schedules: 'Horaires'
       closed: 'Fermé'
     days:
       monday: 'Lundi'
