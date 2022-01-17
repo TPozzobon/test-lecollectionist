@@ -9,11 +9,11 @@
         <ul>
           <li>
             <% if schedule.close_am.nil? && schedule.close_pm.nil? %>
-              <%= "#{schedule.day} Fermé" %>
+              <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
             <% elsif schedule.close_am.nil? && schedule.open_pm.nil? %>
-              <%= "#{schedule.day} #{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+              <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
             <% else %>
-              <%= "#{schedule.day} #{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+              <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
             <% end %>
           </li>
         </ul>

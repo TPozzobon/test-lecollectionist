@@ -29,5 +29,15 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+fr:
+  home:
+    general:
+      closed: 'Fermé'
+    days:
+      monday: 'Lundi'
+      tuesday: 'Mardi'
+      wednesday: 'Mercredi'
+      thursday: 'Jeudi'
+      friday: 'Vendredi'
+      saturday: 'Samedi'
+      sunday: 'Dimanche'
