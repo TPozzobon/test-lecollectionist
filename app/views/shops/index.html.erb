@@ -5,15 +5,35 @@
     <li><%= shop.name %></li>
     <p>
       <strong><%= t("home.general.schedules") %> :</strong>
-      <% shop.schedules.each do |schedule| %>
+      <% shop.schedules.sort_by { |el| el == Date.today.strftime("%A").downcase }.each do |schedule| %>
         <ul>
           <li>
             <% if schedule.close_am.nil? && schedule.close_pm.nil? %>
-              <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
+              <% if schedule.day == Date.today.strftime("%A").downcase %>
+                <strong>
+                  <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
+                </strong>
+              <% else %>
+                <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
+              <% end %>
+
             <% elsif schedule.close_am.nil? && schedule.open_pm.nil? %>
-              <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+              <% if schedule.day == Date.today.strftime("%A").downcase %>
+                <strong>
+                  <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+                </strong>
+              <% else %>
+                <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+              <% end %>
+
             <% else %>
-              <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+              <% if schedule.day == Date.today.strftime("%A").downcase %>
+                <strong>
+                  <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+                </strong>
+              <% else %>
+                <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+              <% end %>
             <% end %>
           </li>
         </ul>
