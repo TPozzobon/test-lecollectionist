@@ -5,38 +5,42 @@
     <li><%= shop.name %></li>
     <p>
       <strong><%= t("home.general.schedules") %> :</strong>
-      <% shop.schedules.sort_by { |el| el == Date.today.strftime("%A").downcase }.each do |schedule| %>
-        <ul>
-          <li>
-            <% if schedule.close_am.nil? && schedule.close_pm.nil? %>
-              <% if schedule.day == Date.today.strftime("%A").downcase %>
-                <strong>
+      <% @ordered_days.each do |day| %>
+        <% occurring_on = @schedules.select { |schedule| schedule.day.capitalize == day } %>
+
+        <% occurring_on.each do |schedule| %>
+          <ul>
+            <li>
+              <% if schedule.close_am.nil? && schedule.close_pm.nil? %>
+                <% if schedule.day == Date.today.strftime("%A").downcase %>
+                  <strong>
+                    <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
+                  </strong>
+                <% else %>
                   <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
-                </strong>
-              <% else %>
-                <%= t("home.days.#{schedule.day}") %> <%= t("home.general.closed") %>
-              <% end %>
+                <% end %>
 
-            <% elsif schedule.close_am.nil? && schedule.open_pm.nil? %>
-              <% if schedule.day == Date.today.strftime("%A").downcase %>
-                <strong>
+              <% elsif schedule.close_am.nil? && schedule.open_pm.nil? %>
+                <% if schedule.day == Date.today.strftime("%A").downcase %>
+                  <strong>
+                    <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+                  </strong>
+                <% else %>
                   <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
-                </strong>
-              <% else %>
-                <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
-              <% end %>
+                <% end %>
 
-            <% else %>
-              <% if schedule.day == Date.today.strftime("%A").downcase %>
-                <strong>
-                  <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
-                </strong>
               <% else %>
-                <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+                <% if schedule.day == Date.today.strftime("%A").downcase %>
+                  <strong>
+                    <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+                  </strong>
+                <% else %>
+                  <%= t("home.days.#{schedule.day}") %> <%= "#{schedule.open_am&.strftime("%H:%M")}-#{schedule.close_am&.strftime("%H:%M")}, #{schedule.open_pm&.strftime("%H:%M")}-#{schedule.close_pm&.strftime("%H:%M")}" %>
+                <% end %>
               <% end %>
-            <% end %>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        <% end %>
       <% end %>
     </p>
   </ul>
