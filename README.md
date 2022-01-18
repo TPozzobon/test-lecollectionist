@@ -1,5 +1,9 @@
 # Test Lecollectionist
 
+## Stack
+* Ruby 3.1.0
+* Rails 7.0.1
+
 ## Usage
 Display shops' schedules
 
