@@ -1,24 +1,26 @@
-# README
+# Test Lecollectionist
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usage
+Display shops' schedules
 
-Things you may want to cover:
+## Installation
+* Download from source
+```sh
+git clone git@github.com:TPozzobon/test-lecollectionist.git
+cd test-lecollectionist
+```
+* Install gems
+```sh
+bundle install
+```
 
-* Ruby version
+* Create DB and Seeds
+```sh
+rails db:create && rails db:migrate && rails db:seed
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Rspec
+* Launch tests
+```sh
+bundle exec rspec
+```
