@@ -7,6 +7,6 @@ class Schedule < ApplicationRecord
   validate :consistency_schedules
 
   def consistency_schedules
-    errors.add(t("home.errors.schedule")) unless :open_am > :close_am || :close_am > :open_pm || :open_pm > :close_pm
+    errors.add(t('home.errors.schedule')) unless :open_am > :close_am || :close_am > :open_pm || :open_pm > :close_pm
   end
 end

@@ -44,4 +44,4 @@ fr:
       saturday: 'Samedi'
       sunday: 'Dimanche'
     errors:
-      schedule: 'Veuillez entrer un horaire valide.' 
+      schedule: 'Veuillez entrer un horaire valide' 
